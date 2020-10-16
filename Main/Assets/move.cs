@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class move : MonoBehaviour
 {
-    int i = 1;
+    public float speed = 1.19f;
+    Vector3 pointA;
+    Vector3 pointB;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+      pointA = new Vector3(0, -2.83f, 0);
+      pointB = new Vector3(5, -2.83f, 0);
     }
 
     // Update is called once per frame
     void Update()
     {
-      transform.Translate(3 * Time.deltaTime * i, 0, 0);
-      i *= -1;
+      float time = Mathf.PingPong(Time.time * speed, 1);
+      transform.position = Vector3.Lerp(pointA, pointB, time);
     }
 }
