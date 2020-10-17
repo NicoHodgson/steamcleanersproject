@@ -18,43 +18,20 @@ public class PlayerMoveScript : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
     }
-
-    //Put non physics based movement in here
-    void Update()
-    {
-        if (Input.GetKey(KeyCode.RightArrow))
-        {
-            buttonPressed = RIGHT;
-
-
-        }
-        else if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            buttonPressed = LEFT;
-
-
-        }
-        else
-        {
-            buttonPressed = null;
-        }
-
-    }
-
     //Put physica based movement in here
     private void FixedUpdate()
     {
         if (buttonPressed == RIGHT)
         {
-
+            rb.velocity = new Vector3(moveSpeed, 0, 0);
         }
         else if (buttonPressed == LEFT)
         {
-
+            rb.velocity = new Vector3(-moveSpeed, 0, 0);
         }
         else
         {
-
+            rb.velocity = new Vector3(0, 0, 0);
         }
     }
 }
