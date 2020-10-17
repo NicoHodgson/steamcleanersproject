@@ -1,37 +1,42 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class PlayerMoveScript : MonoBehaviour
+public class Player_Movement : MonoBehaviour
 {
-    Rigidbody rb;
-    private float moveSpeed = 3;
-
-    public const string RIGHT = "right";
+    public Rigidbody rb;
     public const string LEFT = "left";
-
-    string buttonPressed;
-
-
+    public const string RIGHT = "right";
+    public float moveSpeed = 3;
+    string buttonpressed;
     // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rb.GetComponent<Rigidbody>();
     }
     //Put physica based movement in here
-    private void FixedUpdate()
-    {
-        if (buttonPressed == RIGHT)
+    private void Update() {
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
-            rb.velocity = new Vector3(moveSpeed, 0, 0);
+            buttonpressed = LEFT;
         }
-        else if (buttonPressed == LEFT)
+        else if (Input.GetKey(KeyCode.RightArrow))
         {
-            rb.velocity = new Vector3(-moveSpeed, 0, 0);
+            buttonpressed = RIGHT;
         }
         else
         {
-            rb.velocity = new Vector3(0, 0, 0);
+            buttonpressed = null;
+        }
+
+    }
+    private void FixedUpdate()
+    {
+        if (buttonpressed == RIGHT)
+        {
+            rb.velocity =new Vector3(moveSpeed * Time.deltaTime, 0, 0);
+        }
+        else if (buttonpressed == LEFT) {
+            rb.velocity = new Vector3(-moveSpeed * Time.deltaTime, 0, 0);
         }
     }
 }
