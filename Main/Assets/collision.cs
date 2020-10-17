@@ -17,7 +17,7 @@ public class collision : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-      if(other.gameObject.name == "enemy") {
+      if(other.gameObject.name == "Enemy") {
 	transform.position = new Vector3(-6.39f, -0.42f, 0f);
       }
     }
