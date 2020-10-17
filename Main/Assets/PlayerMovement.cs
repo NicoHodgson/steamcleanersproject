@@ -32,7 +32,7 @@ public class PlayerMovement : MonoBehaviour
         {
             buttonpressed = null;
         }
-        if (Input.GetButtonDown("Jump") || Input.GetKey(KeyCode.W))
+        if (Input.GetButtonDown("Jump") || Input.GetButtonDown("w") || Input.GetButtonDown("UpArrow"))
         {
             isJumping = true;
         }
