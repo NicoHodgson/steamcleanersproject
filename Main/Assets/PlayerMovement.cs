@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb.GetComponent<Rigidbody>();
     }
-    //Put physica based movement in here
+    //Put physics based movement in here
     private void Update()
     {
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
