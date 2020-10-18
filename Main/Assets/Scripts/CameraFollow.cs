@@ -15,6 +15,7 @@ public class CameraFollow : MonoBehaviour
     public float rightLimit;
     public float bottomLimit;
     public float topLimit;
+    public bool boxPlot = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -45,14 +46,17 @@ public class CameraFollow : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
-        //top line
-        Gizmos.DrawLine(new Vector2(leftLimit, topLimit), new Vector2(rightLimit, topLimit));
-        //right line
-        Gizmos.DrawLine(new Vector2(rightLimit, topLimit), new Vector2(rightLimit, bottomLimit));
-        //bottom line
-        Gizmos.DrawLine(new Vector2(rightLimit, bottomLimit), new Vector2(leftLimit, bottomLimit));
-        //left line
-        Gizmos.DrawLine(new Vector2(leftLimit, bottomLimit), new Vector2(leftLimit, topLimit));
+        if (boxPlot)
+        {
+            Gizmos.color = Color.red;
+            //top line
+            Gizmos.DrawLine(new Vector2(leftLimit, topLimit), new Vector2(rightLimit, topLimit));
+            //right line
+            Gizmos.DrawLine(new Vector2(rightLimit, topLimit), new Vector2(rightLimit, bottomLimit));
+            //bottom line
+            Gizmos.DrawLine(new Vector2(rightLimit, bottomLimit), new Vector2(leftLimit, bottomLimit));
+            //left line
+            Gizmos.DrawLine(new Vector2(leftLimit, bottomLimit), new Vector2(leftLimit, topLimit));
+        }
     }
 }
