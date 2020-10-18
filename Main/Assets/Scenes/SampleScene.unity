@@ -1033,7 +1033,7 @@ MonoBehaviour:
   rb: {fileID: 1912994731}
   moveSpeed: 50
   isGrounded: 0
-  jumpForce: 6
+  jumpForce: 10
   isJumping: 0
   maxSpeed: 6
   startCheck: 0
