@@ -255,7 +255,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1912994730}
   speedOffset: 5
-  posOffset: {x: 0, y: 0, z: 0}
+  posOffset: {x: 2, y: 0, z: 0}
   leftLimit: -2
   rightLimit: 9
   bottomLimit: -0.75
