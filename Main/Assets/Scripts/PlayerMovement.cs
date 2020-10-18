@@ -39,6 +39,9 @@ public class PlayerMovement : MonoBehaviour
             {
                 isJumping = true;
             }
+            if (isGrounded == false) {
+                isJumping = false;
+            }
         }
     }
     private void FixedUpdate()
