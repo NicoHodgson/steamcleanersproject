@@ -8,11 +8,11 @@ public class PlayerMovement : MonoBehaviour
     public const string RIGHT = "right";
     public float moveSpeed = 3;
     string buttonpressed;
-    public bool isGrounded;
     public float jumpForce;
-    public bool isJumping = false;
     public float maxSpeed = 200f;
-    public float startCheck = 0;
+    public bool startCheck = false;
+    public bool isGrounded;
+    public bool isJumping = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     //Put physics based movement in here
     private void Update()
     {
-        if (startCheck > 0)
+        if (startCheck)
         {
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
             {
@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (startCheck > 0)
+        if (startCheck)
         {
             if (buttonpressed == RIGHT)
             {
@@ -73,12 +73,12 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             isGrounded = true;
-            startCheck++;
+            startCheck = true;
         }
     }
     private void OnTriggerEnter(Collider other)
     {if (other.gameObject.tag == "Enemy") {
-            startCheck = 0;
+            startCheck = false;
         }
 
     }
