@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class collision : MonoBehaviour
 {
+    public Rigidbody rb;
     // Start is called before the first frame update
     void Start()
     {
-        
+    rb.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -17,8 +18,10 @@ public class collision : MonoBehaviour
     }
 
     private void OnTriggerEnter(Collider other) {
-      if(other.gameObject.name == "Enemy") {
+      if(other.gameObject.tag == "Enemy") {
 	transform.position = new Vector3(-6.39f, -0.42f, 0f);
+            rb.velocity = new Vector3(0, 0, 0);
+
       }
     }
 }
