@@ -260,7 +260,7 @@ MonoBehaviour:
   rightLimit: 9
   bottomLimit: -0.75
   topLimit: 2
-  boxPlot: 0
+  boxGuide: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0

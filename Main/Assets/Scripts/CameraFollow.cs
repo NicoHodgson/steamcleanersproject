@@ -15,7 +15,7 @@ public class CameraFollow : MonoBehaviour
     public float rightLimit;
     public float bottomLimit;
     public float topLimit;
-    public bool boxPlot = false;
+    public bool boxGuide = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,7 +46,7 @@ public class CameraFollow : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (boxPlot)
+        if (boxGuide)
         {
             Gizmos.color = Color.red;
             //top line
