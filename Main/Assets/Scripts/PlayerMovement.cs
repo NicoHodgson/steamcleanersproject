@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce;
     public bool isJumping = false;
     public float maxSpeed = 200f;
+    public float startCheck = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,42 +21,48 @@ public class PlayerMovement : MonoBehaviour
     //Put physics based movement in here
     private void Update()
     {
-        if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+        if (startCheck > 0)
         {
-            buttonpressed = LEFT;
-        }
-        else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
-        {
-            buttonpressed = RIGHT;
-        }
-        else
-        {
-            buttonpressed = null;
-        }
-        if (Input.GetButtonDown("Jump") || Input.GetButtonDown("w") || Input.GetButtonDown("UpArrow"))
-        {
-            isJumping = true;
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow))
+            {
+                buttonpressed = LEFT;
+            }
+            else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow))
+            {
+                buttonpressed = RIGHT;
+            }
+            else
+            {
+                buttonpressed = null;
+            }
+            if (Input.GetButtonDown("Jump") || Input.GetButtonDown("w") || Input.GetButtonDown("UpArrow"))
+            {
+                isJumping = true;
+            }
         }
     }
     private void FixedUpdate()
     {
-        if (buttonpressed == RIGHT)
+        if (startCheck > 0)
         {
-            rb.AddForce(new Vector3(moveSpeed * Time.deltaTime, 0, 0), ForceMode.Impulse);
-        }
-        else if (buttonpressed == LEFT)
-        {
-            rb.AddForce(new Vector3(-moveSpeed * Time.deltaTime, 0, 0), ForceMode.Impulse);
-        }
-        if (isJumping == true && isGrounded == true)
-        {
-            rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
-            isGrounded = false;
-            isJumping = false;
-        }
-        if (rb.velocity.magnitude > maxSpeed)
-        {
-            rb.velocity = rb.velocity.normalized * maxSpeed;
+            if (buttonpressed == RIGHT)
+            {
+                rb.AddForce(new Vector3(moveSpeed * Time.deltaTime, 0, 0), ForceMode.Impulse);
+            }
+            else if (buttonpressed == LEFT)
+            {
+                rb.AddForce(new Vector3(-moveSpeed * Time.deltaTime, 0, 0), ForceMode.Impulse);
+            }
+            if (isJumping == true && isGrounded == true)
+            {
+                rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode.Impulse);
+                isGrounded = false;
+                isJumping = false;
+            }
+            if (rb.velocity.magnitude > maxSpeed)
+            {
+                rb.velocity = rb.velocity.normalized * maxSpeed;
+            }
         }
     }
     private void OnCollisionEnter(Collision collision)
@@ -63,6 +70,13 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Ground")
         {
             isGrounded = true;
+            startCheck++;
         }
+    }
+    private void OnTriggerEnter(Collider other)
+    {if (other.gameObject.tag == "Enemy") {
+            startCheck = 0;
+        }
+
     }
 }
