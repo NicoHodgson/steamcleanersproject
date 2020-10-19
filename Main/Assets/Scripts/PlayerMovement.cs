@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     string buttonpressed;
     public float jumpForce;
     public float maxSpeed = 200f;
+    public float gravity = 10;
     public bool startCheck = false;
     public bool isGrounded;
     public bool isJumping = false;
@@ -66,6 +67,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 rb.velocity = rb.velocity.normalized * maxSpeed;
             }
+            rb.AddForce(new Vector3(0, -gravity, 0), ForceMode.Acceleration);
         }
     }
     private void OnCollisionEnter(Collision collision)
