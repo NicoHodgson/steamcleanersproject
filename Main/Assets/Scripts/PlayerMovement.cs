@@ -72,14 +72,14 @@ public class PlayerMovement : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "MovingPlat")
         {
             isGrounded = true;
             startCheck = true;
         }
     }
     private void OnTriggerEnter(Collider other)
-    {if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Goal") {
+    {if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Level2Enemy" || other.gameObject.tag == "Goal") {
             startCheck = false;
         }
 

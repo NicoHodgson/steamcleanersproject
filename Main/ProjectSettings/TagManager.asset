@@ -7,6 +7,9 @@ TagManager:
   - Ground
   - Enemy
   - Goal
+  - MovingPlat
+  - Level2Enemy
+  - Goal2
   layers:
   - Default
   - TransparentFX
