@@ -5,6 +5,18 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+<<<<<<< Updated upstream
+=======
+  - Enemy
+  - Goal
+  - MovingPlat
+  - Level2Enemy
+  - Goal2
+  - Coin
+  - Goal3
+  - JumpPad
+  - Level3Enemy
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
