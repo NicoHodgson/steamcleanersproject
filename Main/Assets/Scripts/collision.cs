@@ -28,6 +28,11 @@ public class collision : MonoBehaviour
              rb.velocity = new Vector3(0, 0, 0);
 	     DeathTextScript.deathAmount += 1;
       }
+      else if(other.gameObject.tag == "Level3Enemy") {
+      	     transform.position = new Vector3(62.31f, -1.56f, 0f);
+             rb.velocity = new Vector3(0, 0, 0);
+	     DeathTextScript.deathAmount += 1;
+      }
       else if(other.gameObject.tag == "Coin") {
 	ScoreTextScript.coinAmount += 1;
 	Destroy (other.gameObject);

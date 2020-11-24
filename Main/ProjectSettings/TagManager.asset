@@ -11,6 +11,7 @@ TagManager:
   - Level2Enemy
   - Goal2
   - Coin
+  - Level3Enemy
   layers:
   - Default
   - TransparentFX

@@ -21,7 +21,7 @@ public class Victory : MonoBehaviour
     {
         if (collide.gameObject.tag == "Goal2")
         {
-            transform.position = new Vector3(-6.39f, -.42f, 0);
+            transform.position = new Vector3(62.31f, -1.56f, 0);
             rb.velocity = new Vector3(0,0,0);
         }
         if (collide.gameObject.tag == "Goal")
