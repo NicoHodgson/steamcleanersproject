@@ -10193,7 +10193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04ccc84b510bb80d88eb3abb105ba312, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 1.25
   displacement: 5
   Vertical: 0
   Horizantal: 1
