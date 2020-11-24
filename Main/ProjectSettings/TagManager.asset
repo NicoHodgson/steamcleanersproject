@@ -12,6 +12,11 @@ TagManager:
   - Goal2
   - Coin
   - Level3Enemy
+  - Goal3
+  - JumpPad
+  - Level4Enemy
+  - Goal4
+  - DoorKey
   layers:
   - Default
   - TransparentFX

@@ -14,6 +14,9 @@ public class PlayerMovement : MonoBehaviour
     public bool startCheck = false;
     public bool isGrounded;
     public bool isJumping = false;
+    public int jumpPadForce = 10;
+    public bool isOnJumpPad = false;
+    public bool hasKey = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -77,10 +80,20 @@ public class PlayerMovement : MonoBehaviour
             isGrounded = true;
             startCheck = true;
         }
+        if (collision.gameObject.tag == "DoorKey")
+        {
+            hasKey = true;
+        }
     }
     private void OnTriggerEnter(Collider other)
-    {if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Level2Enemy" || other.gameObject.tag == "Goal") {
+    {if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Level2Enemy" || other.gameObject.tag == "Goal" || other.gameObject.tag == "Goal2" || other.gameObject.tag == "Goal3" || other.gameObject.tag == "Goal4" || 
+            other.gameObject.tag == "Level4Enemy" || other.gameObject.tag == "Level3Enemy") {
             startCheck = false;
+        }
+        if (other.gameObject.tag == "JumpPad")
+        {
+            rb.AddForce(new Vector3(0, jumpPadForce * 10, 0), ForceMode.Impulse);
+            isOnJumpPad = true;
         }
 
     }

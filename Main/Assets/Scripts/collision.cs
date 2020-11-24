@@ -19,21 +19,28 @@ public class collision : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
       if(other.gameObject.tag == "Enemy") {
-	        transform.position = new Vector3(-6.39f, -0.42f, 0f);
+	        transform.position = new Vector3(-6.39f, -0.32f, 0f);
             rb.velocity = new Vector3(0, 0, 0);
 	    DeathTextScript.deathAmount += 1;
       }
       else if(other.gameObject.tag == "Level2Enemy") {
-      	     transform.position = new Vector3(26.8f, -0.30f, 0f);
+      	     transform.position = new Vector3(26.8f, -0.32f, 0f);
              rb.velocity = new Vector3(0, 0, 0);
 	     DeathTextScript.deathAmount += 1;
       }
       else if(other.gameObject.tag == "Level3Enemy") {
-      	     transform.position = new Vector3(62.31f, -1.56f, 0f);
+      	     transform.position = new Vector3(62.31f, -.32f, 0f);
              rb.velocity = new Vector3(0, 0, 0);
 	     DeathTextScript.deathAmount += 1;
       }
-      else if(other.gameObject.tag == "Coin") {
+        else if (other.gameObject.tag == "Level4Enemy")
+        {
+            transform.position = new Vector3(105.5f, -.32f, 0f);
+            rb.velocity = new Vector3(0, 0, 0);
+            DeathTextScript.deathAmount += 1;
+        }
+
+        else if(other.gameObject.tag == "Coin") {
 	ScoreTextScript.coinAmount += 1;
 	Destroy (other.gameObject);
       }
